@@ -44,6 +44,12 @@
             color: #d1d1d1;
             font-size: 1.2em;
         }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
         .item:hover {
             transform: scale(1.05);
         }
@@ -140,6 +146,15 @@
         .close:hover {
             color: #00adb5;
         }
+        .dots {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            color: #00adb5;
+            font-size: 2em;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -186,6 +201,9 @@
             <p><strong>Commercial Plumbing</strong>: Professional plumbing solutions for businesses and commercial properties in the Cape areas.</p>
         </div>
     </div>
+
+    <!-- Three dots for popup trigger -->
+    <div class="dots" onclick="showPopup()">...</div>
 
     <script>
         // Function to show the popup
