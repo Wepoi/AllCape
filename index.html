@@ -9,16 +9,17 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #f4f4f9;
+            color: #333;
         }
         .navbar {
-            background-color: #000;
+            background-color: #00adb5;
             color: #fff;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .navbar h1 {
             font-size: 1.5em;
@@ -39,17 +40,18 @@
         .section-title {
             font-size: 2em;
             margin-bottom: 10px;
+            text-align: center;
         }
         .item {
-            border: 1px solid #e0e0e0;
+            border: 1px solid #ddd;
             border-radius: 10px;
             margin: 20px 0;
             padding: 20px;
-            width: 80%;
             box-sizing: border-box;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            text-align: center;
         }
         .item img {
             max-width: 100%;
@@ -58,11 +60,12 @@
             margin-bottom: 15px;
         }
         .item h2 {
-            color: #1d1d1f;
+            color: #00adb5;
             font-size: 1.5em;
+            margin-bottom: 10px;
         }
         .item p {
-            color: #6e6e73;
+            color: #555;
             font-size: 1em;
         }
         .item:hover {
@@ -70,76 +73,57 @@
         }
         .contact-form {
             width: 80%;
+            max-width: 600px;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            margin: 20px auto;
         }
         .contact-form h2 {
-            color: #1d1d1f;
+            color: #00adb5;
             font-size: 1.5em;
             margin-bottom: 10px;
+            text-align: center;
         }
         .contact-form label {
             display: block;
-            color: #6e6e73;
+            color: #333;
             margin: 10px 0 5px;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #d2d2d7;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #f4f4f9;
+            color: #333;
             font-size: 1em;
         }
         .contact-form button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #0071e3;
+            background-color: #00adb5;
             color: #fff;
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: block;
+            width: 100%;
         }
         .contact-form button:hover {
-            background-color: #005bb5;
+            background-color: #007f89;
         }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .popup-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
+        .footer {
+            background-color: #00adb5;
+            color: #fff;
             text-align: center;
-        }
-        .popup-content h2 {
-            margin-bottom: 10px;
-        }
-        .popup-content a {
-            display: block;
-            color: #0071e3;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            text-decoration: none;
-        }
-        .popup-content a:hover {
-            text-decoration: underline;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
@@ -147,12 +131,13 @@
     <div class="navbar">
         <h1>All Cape Plumbers</h1>
         <div>
-            <a href="#" onclick="showPopup()">Emergency</a>
-            <a href="#" onclick="showPopup()">Residential</a>
-            <a href="#" onclick="showPopup()">Commercial</a>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </div>
     </div>
     <div class="container">
+        <h2 class="section-title">Our Services</h2>
         <div class="item">
             <img src="emrg.jpg" alt="Emergency Plumbing">
             <h2>Emergency Plumbing</h2>
@@ -185,23 +170,8 @@
             </form>
         </div>
     </div>
-
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <h2>Select Listing Type</h2>
-            <a href="#" onclick="hidePopup()">List A Emergency</a>
-            <a href="#" onclick="hidePopup()">List A Residential</a>
-            <a href="#" onclick="hidePopup()">List A Commercial</a>
-        </div>
+    <div class="footer">
+        <p>&copy; 2024 All Cape Plumbers. All rights reserved.</p>
     </div>
-
-    <script>
-        function showPopup() {
-            document.getElementById('popup').style.display = 'flex';
-        }
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
