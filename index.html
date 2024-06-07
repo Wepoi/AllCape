@@ -9,40 +9,47 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
         }
-        h1 {
-            text-align: center;
-            font-size: 3em;
-            margin-top: 20px;
-            color: #00adb5;
-            animation: fadeInDown 1s ease-out;
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1em;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 20px;
         }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
         .item {
-            border: 1px solid #333;
+            border: 1px solid #e0e0e0;
             border-radius: 10px;
             margin: 20px 0;
             padding: 20px;
             width: 80%;
             box-sizing: border-box;
-            background-color: #1e1e1e;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-        }
-        .item h2 {
-            color: #00adb5;
-            font-size: 2em;
-        }
-        .item p {
-            color: #d1d1d1;
-            font-size: 1.2em;
         }
         .item img {
             max-width: 100%;
@@ -50,77 +57,101 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
+        .item h2 {
+            color: #1d1d1f;
+            font-size: 1.5em;
+        }
+        .item p {
+            color: #6e6e73;
+            font-size: 1em;
+        }
         .item:hover {
             transform: scale(1.05);
         }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .item {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         .contact-form {
             width: 80%;
-            background-color: #1e1e1e;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
         .contact-form h2 {
-            color: #00adb5;
-            font-size: 2em;
+            color: #1d1d1f;
+            font-size: 1.5em;
             margin-bottom: 10px;
         }
         .contact-form label {
             display: block;
-            color: #d1d1d1;
+            color: #6e6e73;
             margin: 10px 0 5px;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
-            border: none;
+            border: 1px solid #d2d2d7;
             border-radius: 5px;
-            background-color: #333;
-            color: #fff;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
             font-size: 1em;
         }
         .contact-form button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #00adb5;
+            background-color: #0071e3;
             color: #fff;
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         .contact-form button:hover {
-            background-color: #007f89;
+            background-color: #005bb5;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .popup-content h2 {
+            margin-bottom: 10px;
+        }
+        .popup-content a {
+            display: block;
+            color: #0071e3;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+        .popup-content a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>All Cape Plumbers</h1>
+    <div class="navbar">
+        <h1>All Cape Plumbers</h1>
+        <div>
+            <a href="#" onclick="showPopup()">Emergency</a>
+            <a href="#" onclick="showPopup()">Residential</a>
+            <a href="#" onclick="showPopup()">Commercial</a>
+        </div>
+    </div>
     <div class="container">
         <div class="item">
             <img src="emrg.jpg" alt="Emergency Plumbing">
@@ -145,7 +176,7 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="text" id="phone" name="phone" required>
                 <label for="location">Location</label>
                 <input type="text" id="location" name="location" required>
                 <label for="message">Message</label>
@@ -154,5 +185,23 @@
             </form>
         </div>
     </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Select Listing Type</h2>
+            <a href="#" onclick="hidePopup()">List A Emergency</a>
+            <a href="#" onclick="hidePopup()">List A Residential</a>
+            <a href="#" onclick="hidePopup()">List A Commercial</a>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
